@@ -78,7 +78,7 @@ button {
     padding: 20px 60px;
     text-align-last: center;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 #nameDiv h1 {
@@ -104,7 +104,7 @@ button {
     flex-direction: column;
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 42px 20.5px;
 }
 
@@ -116,23 +116,23 @@ button {
     max-width: 888px;
     min-height: 560px;
     margin: 50px auto;
-    box-shadow: 0 0 8px;
     padding: 0 !important;
     cursor: pointer;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 .box {
     width: 140px;
     height: 140px;
-    border: 2px solid #000000;
     float: left;
-    box-shadow: 0 0 5px;
     position: relative;
     overflow: hidden;
     transition: transform 0.7s;
     margin: 4px;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
 }
 
 .front {
@@ -179,10 +179,10 @@ input.form-control {
     margin: 0 25%;
     padding: 15px;
     min-height: 112px;
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     display: flex;
     gap: 2%;
-    border-radius: 5px;
+    border-radius: 15px;
     justify-content: space-evenly;
     overflow: hidden;
 }
@@ -203,9 +203,43 @@ input.form-control {
     margin: 0;
 }
 
-
-footer {
+.footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     margin-top: 50px;
+    background: #2e2e2e !important;
+    min-height: 75px;
+    align-content: center
 }
+
+.footer .general-info {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 15%;
+    justify-content: space-evenly;
+    color: var(--main-color);
+    gap: 10px;
+    min-width: 320px;
+    font-size: 2.5rem;
+}
+
+.footer a {
+    text-decoration: none !important;
+    transition-property: color;
+    transition-duration: 1s;
+    color: var(--main-color);
+    font-size: 2.5rem;
+}
+
+.footer a:visited {
+    color: var(--main-color);
+}
+
+.footer a:hover {
+    color: #eeeeee;
+}
+
+
 
 
