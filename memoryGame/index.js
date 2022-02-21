@@ -1,7 +1,6 @@
 const time = document.getElementById("time");
 let sec = 0;
 let min = 0;
-let hour = 0;
 
 function timer() {
     sec++;
@@ -10,26 +9,25 @@ function timer() {
         min++;
         if (min > 59) {
             min = 0;
-            hour++;
         }
     }
 
-    if (sec < 10 && min < 10 && hour < 10) {
-        time.innerHTML = `0${hour}:0${min}:0${sec}`;
-    } else if (sec > 9 && min < 10 && hour < 10) {
-        time.innerHTML = `0${hour}:0${min}:${sec}`;
-    } else if (sec < 10 && min > 9 && hour < 10) {
-        time.innerHTML = `0${hour}:${min}:0${sec}`;
-    } else if (sec < 10 && min < 10 && hour > 9) {
-        time.innerHTML = `${hour}:0${min}:0${sec}`;
-    } else if (sec > 9 && min > 9 && hour < 10) {
-        time.innerHTML = `0${hour}:${min}:${sec}`;
-    } else if (sec > 9 && min < 10 && hour > 9) {
-        time.innerHTML = `${hour}:0${min}:${sec}`;
-    } else if (sec < 10 && min > 9 && hour > 9) {
-        time.innerHTML = `${hour}:${min}:0${sec}`;
-    } else if (sec > 9 && min > 9 && hour > 10) {
-        time.innerHTML = `${hour}:${min}:${sec}`;
+    if (sec < 10 && min < 10) {
+        time.innerHTML = `0${min}:0${sec}`;
+    } else if (sec > 9 && min < 10) {
+        time.innerHTML = `0${min}:${sec}`;
+    } else if (sec < 10 && min > 9) {
+        time.innerHTML = `${min}:0${sec}`;
+    } else if (sec < 10 && min < 10) {
+        time.innerHTML = `0${min}:0${sec}`;
+    } else if (sec > 9 && min > 9) {
+        time.innerHTML = `${min}:${sec}`;
+    } else if (sec > 9 && min < 10) {
+        time.innerHTML = `0${min}:${sec}`;
+    } else if (sec < 10 && min > 9) {
+        time.innerHTML = `${min}:0${sec}`;
+    } else if (sec > 9 && min > 9) {
+        time.innerHTML = `${min}:${sec}`;
     }
 }
 
@@ -95,18 +93,17 @@ function defaultPage() {
         for (let i = 0; i < topResults.length; i++) {
             topResults[i].value = value(topResults[i].time);
         }
-        topResults.sort(function (a,b) {
+        topResults.sort(function (a, b) {
             return a.value - b.value;
         });
         for (let i = 0; i < topResults.length; i++) {
-            if (i < 7) {
+            if (i < 5) {
                 text += `
-        <div class="col-sm-2">
           <div class="scores">
-            <p>${topResults[i].name}</p>
-            <p>${topResults[i].time}</p>
+           <p class="positionInScore">${i+1}</p>
+            <p class="userNameInScore">${topResults[i].name}</p>
+            <p class="numInScore">${topResults[i].time}</p>
           </div>
-        </div>
         `;
             }
         }
@@ -142,11 +139,10 @@ function startGame() {
 }
 
 
-
 function createTable() {
-    let text ="";
+    let text = "";
     for (let i = 0; i < numberOfCards; i++) {
-        let rand = Math.floor(Math.random()*icons.length);
+        let rand = Math.floor(Math.random() * icons.length);
         text += "<div class='box' data-id=" + i + "><div class='back'>" + icons[rand] + "</div><div class='front'></div></div>";
         icons.splice(rand, 1);
     }
@@ -176,7 +172,7 @@ function checkFlip(ids) {
     const back2 = twoBox[1].children[0];
     if (back1.innerHTML === back2.innerHTML) {
         gameOver++;
-        if (gameOver === numberOfCards/2) {
+        if (gameOver === numberOfCards / 2) {
             topResults.push({
                 name: localStorage.userName,
                 time: time.innerText
@@ -207,21 +203,21 @@ function removeEvents() {
     }
 }
 
-//add or return event to those which are not resolved
+
 function addClickEvents(arr) {
     var noBoxes = [];
     var reducedBoxes = [];
-    //filling in the array noBoxes with the order numbers of boxes (length should be 24)
+
 
     for (let i = 0; i < boxes.length; i++) {
         noBoxes.push(i);
     }
-    //push to a reducedBoxes the order numbers for which we shouldn't returnEvent
+
     noBoxes.forEach(function (e) {
-          if (arr.indexOf(e) == -1) {
+        if (arr.indexOf(e) == -1) {
             reducedBoxes.push(e);
         }
-    })
+    });
     //returnEvent for those boxes which we didn't got!
     for (var i = 0; i < reducedBoxes.length; i++) {
         boxes[reducedBoxes[i]].addEventListener("click", flip);

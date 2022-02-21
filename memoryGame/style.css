@@ -119,18 +119,20 @@ button {
     box-shadow: 0 0 8px;
     padding: 0 !important;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .box {
     width: 140px;
     height: 140px;
-    border: 1px solid #eee;
+    border: 2px solid #000000;
     float: left;
     box-shadow: 0 0 5px;
     position: relative;
     overflow: hidden;
     transition: transform 0.7s;
     margin: 4px;
+    border-radius: 10px;
 }
 
 .front {
@@ -140,6 +142,7 @@ button {
     background: repeating-radial-gradient(circle, var(--main-color-light),var(--main-color-light) 0px, var(--main-color-dark) 10px, var(--main-color-dark) 20px);
     backface-visibility: hidden;
     transition: all 0.7s;
+    border-radius: 5px;
 }
 
 .back {
@@ -154,22 +157,7 @@ button {
     backface-visibility: hidden;
     transition: all 0.7s;
     transform: perspective(900px) rotateY(180deg);
-}
-
-#scoreboard {
-    padding: 15px;
-    border: 1px solid #eee;
-    height: 10vh;
-    box-shadow: 0 0 8px;
-}
-
-.scores {
-    margin: 8px;
-    display: inline-block;
-}
-
-.scores p{
-font-size: 2.5rem;
+    border-radius: 5px;
 }
 
 .fa {
@@ -179,6 +167,45 @@ font-size: 2.5rem;
 
 input.form-control {
     font-size: 2.5rem;
+}
+
+.score h2 {
+    margin-bottom: 0;
+    color: var(--main-color);
+    text-align: center;
+}
+
+#scoreboard {
+    margin: 0 25%;
+    padding: 15px;
+    min-height: 112px;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    display: flex;
+    gap: 2%;
+    border-radius: 5px;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+
+.scores {
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+}
+
+.scores p{
+    font-size: 2rem;
+}
+
+.userNameInScore,
+.numInScore {
+    padding: 0;
+    margin: 0;
+}
+
+
+footer {
+    margin-top: 50px;
 }
 
 
