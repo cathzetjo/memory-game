@@ -1,2 +1,1 @@
-# cathzetjo-JSFEPRESCHOOL
-Private repository for @cathzetjo
+[Deploy link on Memory Game](https://cathzetjo.github.io/memory-game/memoryGame/)
